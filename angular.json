@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ClientGestionStockProduit": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ClientGestionStockProduit"
+    }
+  },
+  "defaultProject": "ClientGestionStockProduit",
+  "cli": {
+    "analytics": "c7593eb9-d923-4b8b-9e10-4622b9e30e4a"
+  }
 }
