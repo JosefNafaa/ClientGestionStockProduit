@@ -12,13 +12,11 @@ export class ProduitComponent implements OnInit {
 
 produits: Produit[] ;
 
-  constructor(private produitService: ProduitMockService) {
-  }
-
+  constructor(private produitService: ProduitMockService) { }
 
   ngOnInit(): void {
-   this.produits=this.produitService.getProduits();
 
+    this.produits=this.produitService.getProduits();
   }
 
 }
