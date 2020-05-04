@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { StoreModule } from '@ngrx/store';
+
+
 //import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProduitComponent } from './produit/produit.component';
@@ -16,8 +19,11 @@ import { ProduitService } from './produit/produit.service';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AppService } from './app.service';
+import { UserService } from './user/user.service';
 import { XhrInterceptor } from './xhr.interceptor';
 import { UserComponent } from './user/user.component';
+import { CrudComponent } from './crud/crud.component';
+import { principalReducer } from './shared/principal.reducer';
 
 @NgModule({
   declarations: [
@@ -29,20 +35,25 @@ import { UserComponent } from './user/user.component';
     DashboardComponent,
     LoginComponent,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    CrudComponent
 
 
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, ReactiveFormsModule,  HttpClientModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    StoreModule.forRoot({principal: principalReducer})
   ],
   providers: [ProduitMockService,
      ProduitService,
      AppService,
      { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true},
-     CookieService]
+     CookieService,
+     UserService]
      ,
   bootstrap: [AppComponent]
 })
